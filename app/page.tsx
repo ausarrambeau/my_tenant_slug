@@ -1,9 +1,9 @@
 const tenantSite = {
   "templatePackId": "template-01-dark-crm",
   "branding": {
-    "companyName": "Test Eleven",
+    "companyName": "Test Twelve",
     "logoUrl": null,
-    "tagline": "Test Eleven client portal",
+    "tagline": "Test Twelve client portal",
     "primaryColor": "#0E7490",
     "secondaryColor": "#F1F5F9",
     "accentColor": "#F97316"
@@ -93,7 +93,7 @@ const tenantSite = {
     {
       "type": "email",
       "label": "Support",
-      "value": "support@test-eleven.example.com",
+      "value": "support@test-twelve.example.com",
       "primary": true
     },
     {
@@ -104,15 +104,15 @@ const tenantSite = {
     }
   ],
   "footer": {
-    "copyrightText": "© 2026 Test Eleven. All rights reserved.",
+    "copyrightText": "© 2026 Test Twelve. All rights reserved.",
     "links": [
       {
         "label": "Privacy",
-        "url": "https://test-eleven.example.com/privacy"
+        "url": "https://test-twelve.example.com/privacy"
       },
       {
         "label": "Terms",
-        "url": "https://test-eleven.example.com/terms"
+        "url": "https://test-twelve.example.com/terms"
       }
     ]
   }
