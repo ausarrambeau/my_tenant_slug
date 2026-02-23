@@ -180,8 +180,10 @@ async function loadBoardSnapshot(): Promise<BoardPayload | null> {
 
 export default function TenantRoutePage() {
   const router = useRouter();
+  const tenantBusinessName = "Test Eighteen";
   const [board, setBoard] = useState<BoardPayload | null>(null);
   const [liveError, setLiveError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const tabToPath = {
     dashboard: "/",
@@ -206,6 +208,10 @@ export default function TenantRoutePage() {
         const message = error instanceof Error ? error.message : "Live data unavailable.";
         setBoard(null);
         setLiveError(message);
+      })
+      .finally(() => {
+        if (!active) return;
+        setIsLoading(false);
       });
 
     return () => {
@@ -213,7 +219,25 @@ export default function TenantRoutePage() {
     };
   }, []);
 
-  const crmData = useMemo(() => mapBoardToCrmData(board, liveError), [board, liveError]);
+  const crmData = useMemo(() => {
+    const next = mapBoardToCrmData(board, liveError);
+    const rawName = String(next.userName || "").trim();
+    const looksLikeSlug = rawName.length > 0 && !rawName.includes(" ") && /^[a-z0-9-]+$/i.test(rawName);
+    return {
+      ...next,
+      userName: looksLikeSlug ? tenantBusinessName : rawName || tenantBusinessName,
+    };
+  }, [board, liveError, tenantBusinessName]);
+
+  if (isLoading) {
+    return (
+      <div className="crm-shell">
+        <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", color: "#9ca3af", background: "#0f0f13" }}>
+          Loading CRM data...
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="crm-shell">
