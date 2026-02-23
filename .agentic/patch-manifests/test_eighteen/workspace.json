@@ -3,7 +3,7 @@
   "artifact_kind": "agentic_workspace_patch_manifest",
   "artifact_ref": "tenant/test_eighteen/workspace:.agentic/patch-manifests/test_eighteen/workspace.json",
   "tenant_slug": "test_eighteen",
-  "publish_job_id": "0d16152e-db57-4a37-82a3-961a46c71d70",
+  "publish_job_id": "437ec7b0-62ad-4e5b-8df0-d643f4124f0b",
   "workspace_branch": "tenant/test_eighteen/workspace",
   "config_version": 1,
   "publish_state": "opening_pr",
