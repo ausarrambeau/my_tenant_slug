@@ -1,9 +1,9 @@
 const tenantSite = {
   "templatePackId": "template-01-dark-crm",
   "branding": {
-    "companyName": "Test Fourteen",
+    "companyName": "Test Fifteen",
     "logoUrl": null,
-    "tagline": "Test Fourteen client portal",
+    "tagline": "Test Fifteen client portal",
     "primaryColor": "#0E7490",
     "secondaryColor": "#F1F5F9",
     "accentColor": "#F97316"
@@ -93,7 +93,7 @@ const tenantSite = {
     {
       "type": "email",
       "label": "Support",
-      "value": "support@test-fourteen.example.com",
+      "value": "support@test-fifteen.example.com",
       "primary": true
     },
     {
@@ -104,15 +104,15 @@ const tenantSite = {
     }
   ],
   "footer": {
-    "copyrightText": "© 2026 Test Fourteen. All rights reserved.",
+    "copyrightText": "© 2026 Test Fifteen. All rights reserved.",
     "links": [
       {
         "label": "Privacy",
-        "url": "https://test-fourteen.example.com/privacy"
+        "url": "https://test-fifteen.example.com/privacy"
       },
       {
         "label": "Terms",
-        "url": "https://test-fourteen.example.com/terms"
+        "url": "https://test-fifteen.example.com/terms"
       }
     ]
   }
