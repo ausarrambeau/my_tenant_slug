@@ -7,7 +7,7 @@ const page = {
   "description": "Monitor account health and KPI snapshots. Configured: show_kpis=true.",
   "routePath": "/portal/dashboard",
   "moduleKey": "dashboard",
-  "companyName": "Test Eleven",
+  "companyName": "Test Twelve",
   "navItems": [
     {
       "label": "Dashboard",
