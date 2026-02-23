@@ -1,8 +1,8 @@
 const tenantSite = {
   "branding": {
-    "companyName": "Test Three",
+    "companyName": "Test Four",
     "logoUrl": null,
-    "tagline": "Test Three client portal",
+    "tagline": "Test Four client portal",
     "primaryColor": "#0E7490",
     "secondaryColor": "#F1F5F9",
     "accentColor": "#F97316"
@@ -54,7 +54,7 @@ const tenantSite = {
     {
       "type": "email",
       "label": "Support",
-      "value": "support@test-three.example.com",
+      "value": "support@test-four.example.com",
       "primary": true
     },
     {
@@ -65,15 +65,15 @@ const tenantSite = {
     }
   ],
   "footer": {
-    "copyrightText": "© 2026 Test Three. All rights reserved.",
+    "copyrightText": "© 2026 Test Four. All rights reserved.",
     "links": [
       {
         "label": "Privacy",
-        "url": "https://test-three.example.com/privacy"
+        "url": "https://test-four.example.com/privacy"
       },
       {
         "label": "Terms",
-        "url": "https://test-three.example.com/terms"
+        "url": "https://test-four.example.com/terms"
       }
     ]
   }
