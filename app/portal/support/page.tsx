@@ -7,7 +7,7 @@ const page = {
   "description": "Open and monitor tenant support requests. Configured: ticket_form_enabled=true.",
   "routePath": "/portal/support",
   "moduleKey": "support",
-  "companyName": "Test Eight",
+  "companyName": "Test Nine",
   "navItems": [
     {
       "label": "Dashboard",
