@@ -204,7 +204,7 @@ export default function TenantRoutePage() {
             <article key={column.title} className="panel panel-dark">
               <h2>{column.title}</h2>
               <ul className="crm-data-list">
-                {column.items.map((item) => (
+                {column.items.map((item: string) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
