@@ -1,8 +1,9 @@
 const page = {
   "title": "Help",
-  "description": "UI scaffold placeholder for Help. Connect APIs and actions in a later integration step.",
+  "description": "Help workspace generated from tenant navigation and module policies.",
   "routePath": "/portal/help",
-  "companyName": "Test Five",
+  "moduleKey": null,
+  "companyName": "Test Six",
   "navItems": [
     {
       "label": "Dashboard",
@@ -18,6 +19,54 @@ const page = {
       "label": "Messages",
       "path": "/portal/messages",
       "external": false
+    }
+  ]
+} as const;
+const composition = {
+  "surface": {
+    "key": "dashboard",
+    "path": "/portal/help",
+    "title": "Help",
+    "description": "Help workspace generated from tenant navigation and module policies."
+  },
+  "kpis": [
+    {
+      "label": "Revenue This Week",
+      "value": "$86.4K"
+    },
+    {
+      "label": "Qualified Leads",
+      "value": "42"
+    },
+    {
+      "label": "Overdue Tasks",
+      "value": "7"
+    }
+  ],
+  "columns": [
+    {
+      "title": "Today",
+      "items": [
+        "08:30 standup",
+        "Follow-up sweep",
+        "Proposal approvals"
+      ]
+    },
+    {
+      "title": "Watchlist",
+      "items": [
+        "2 at-risk accounts",
+        "1 SLA breach",
+        "5 stale leads"
+      ]
+    },
+    {
+      "title": "Automation",
+      "items": [
+        "Lead router healthy",
+        "Reminder jobs healthy",
+        "Sync queue: 2 min"
+      ]
     }
   ]
 } as const;
@@ -58,41 +107,32 @@ export default function TenantRoutePage() {
       <main className="crm-main">
         <header className="crm-topbar">
           <div>
-            <p className="eyebrow">Portal Module</p>
-            <h1>{page.title}</h1>
-            <p className="tagline">{page.description}</p>
+            <p className="eyebrow">CRM Surface</p>
+            <h1>{composition.surface.title}</h1>
+            <p className="tagline">{composition.surface.description}</p>
           </div>
         </header>
 
-        <section className="crm-grid-two">
-          <article className="panel panel-dark">
-            <h2>Module Workflow</h2>
-            <p>This module is pre-rendered for <code>{page.routePath}</code> and follows the selected dark CRM template style.</p>
-            <div className="crm-checklist">
-              <div>
-                <span>Lead intake</span>
-                <strong>Ready</strong>
-              </div>
-              <div>
-                <span>Assignment + SLA</span>
-                <strong>Ready</strong>
-              </div>
-              <div>
-                <span>Automation hooks</span>
-                <strong>Placeholder</strong>
-              </div>
-            </div>
-          </article>
+        <section className="crm-kpis" aria-label="Surface KPIs">
+          {composition.kpis.map((kpi) => (
+            <article key={kpi.label} className="crm-kpi-card">
+              <p>{kpi.label}</p>
+              <h3>{kpi.value}</h3>
+            </article>
+          ))}
+        </section>
 
-          <article className="panel panel-dark">
-            <h2>UI Scaffold</h2>
-            <p>
-              This page is generated from tenant template config for <code>{page.routePath}</code>.
-            </p>
-            <p>
-              Wire live data and actions later through centralized control-plane APIs.
-            </p>
-          </article>
+        <section className="crm-grid-three">
+          {composition.columns.map((column) => (
+            <article key={column.title} className="panel panel-dark">
+              <h2>{column.title}</h2>
+              <ul className="crm-data-list">
+                {column.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </section>
       </main>
     </div>
