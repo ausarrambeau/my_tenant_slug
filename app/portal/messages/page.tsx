@@ -252,3 +252,5 @@ export default function TenantRoutePage() {
     </div>
   );
 }
+
+/* agentic-edit:7b1d70c58974 Change the text 'Vanguard CRM' to 'Rambo CRM' on the sidebar */

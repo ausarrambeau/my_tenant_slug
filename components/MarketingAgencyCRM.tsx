@@ -2741,3 +2741,4 @@ export const MarketingAgencyCRM = ({
     </div>;
 };
 
+/* agentic-edit:0dad21e55d59 Change the text 'Vanguard CRM' to 'Rambo CRM' on the sidebar */

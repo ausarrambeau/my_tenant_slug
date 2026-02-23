@@ -252,3 +252,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+/* agentic-edit:2ab68bf9d3a3 Change the text 'Vanguard CRM' to 'Rambo CRM' on the sidebar */
