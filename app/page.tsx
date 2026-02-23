@@ -1,9 +1,9 @@
 const tenantSite = {
   "templatePackId": "template-01-dark-crm",
   "branding": {
-    "companyName": "Test Seven",
+    "companyName": "Test Eight",
     "logoUrl": null,
-    "tagline": "Test Seven client portal",
+    "tagline": "Test Eight client portal",
     "primaryColor": "#0E7490",
     "secondaryColor": "#F1F5F9",
     "accentColor": "#F97316"
@@ -93,7 +93,7 @@ const tenantSite = {
     {
       "type": "email",
       "label": "Support",
-      "value": "support@test-seven.example.com",
+      "value": "support@test-eight.example.com",
       "primary": true
     },
     {
@@ -104,15 +104,15 @@ const tenantSite = {
     }
   ],
   "footer": {
-    "copyrightText": "© 2026 Test Seven. All rights reserved.",
+    "copyrightText": "© 2026 Test Eight. All rights reserved.",
     "links": [
       {
         "label": "Privacy",
-        "url": "https://test-seven.example.com/privacy"
+        "url": "https://test-eight.example.com/privacy"
       },
       {
         "label": "Terms",
-        "url": "https://test-seven.example.com/terms"
+        "url": "https://test-eight.example.com/terms"
       }
     ]
   }
