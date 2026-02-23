@@ -1,9 +1,9 @@
 const tenantSite = {
   "templatePackId": "template-01-dark-crm",
   "branding": {
-    "companyName": "Test Five",
+    "companyName": "Test Six",
     "logoUrl": null,
-    "tagline": "Test Five client portal",
+    "tagline": "Test Six client portal",
     "primaryColor": "#0E7490",
     "secondaryColor": "#F1F5F9",
     "accentColor": "#F97316"
@@ -51,11 +51,49 @@ const tenantSite = {
       "href": "/portal/support"
     }
   ],
+  "crmSurfaces": [
+    {
+      "key": "dashboard",
+      "path": "/portal/dashboard",
+      "title": "Dashboard",
+      "description": "Cross-team KPIs, lead velocity, and daily focus queues."
+    },
+    {
+      "key": "pipeline",
+      "path": "/portal/pipeline",
+      "title": "Pipeline",
+      "description": "Stage-by-stage opportunity flow with ownership and aging."
+    },
+    {
+      "key": "contacts",
+      "path": "/portal/contacts",
+      "title": "Contacts",
+      "description": "Unified people records, lifecycle state, and relationship notes."
+    },
+    {
+      "key": "tasks",
+      "path": "/portal/tasks",
+      "title": "Tasks",
+      "description": "Action queue for follow-ups, handoffs, and due-date execution."
+    },
+    {
+      "key": "messages",
+      "path": "/portal/messages",
+      "title": "Messages",
+      "description": "Client communications timeline across channels and threads."
+    },
+    {
+      "key": "settings",
+      "path": "/portal/settings",
+      "title": "Settings",
+      "description": "Team permissions, automations, routing rules, and integrations."
+    }
+  ],
   "contact": [
     {
       "type": "email",
       "label": "Support",
-      "value": "support@test-five.example.com",
+      "value": "support@test-six.example.com",
       "primary": true
     },
     {
@@ -66,15 +104,15 @@ const tenantSite = {
     }
   ],
   "footer": {
-    "copyrightText": "© 2026 Test Five. All rights reserved.",
+    "copyrightText": "© 2026 Test Six. All rights reserved.",
     "links": [
       {
         "label": "Privacy",
-        "url": "https://test-five.example.com/privacy"
+        "url": "https://test-six.example.com/privacy"
       },
       {
         "label": "Terms",
-        "url": "https://test-five.example.com/terms"
+        "url": "https://test-six.example.com/terms"
       }
     ]
   }
@@ -129,6 +167,22 @@ export default function HomePage() {
             <article key={stat.label} className="crm-kpi-card">
               <p>{stat.label}</p>
               <h3>{stat.value}</h3>
+            </article>
+          ))}
+        </section>
+
+        <section className="crm-grid-three">
+          {tenantSite.crmSurfaces.map((surface) => (
+            <article key={surface.key} className="panel panel-dark">
+              <h2>{surface.title}</h2>
+              <p>{surface.description}</p>
+              <a href={surface.path} className="crm-module-row">
+                <div>
+                  <h3>Open {surface.title}</h3>
+                  <p>{surface.path}</p>
+                </div>
+                <span>Open</span>
+              </a>
             </article>
           ))}
         </section>
