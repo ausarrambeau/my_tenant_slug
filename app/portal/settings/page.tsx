@@ -7,7 +7,7 @@ const page = {
   "description": "Team permissions, automations, routing rules, and integrations.",
   "routePath": "/portal/settings",
   "moduleKey": "settings",
-  "companyName": "Test Eight",
+  "companyName": "Test Nine",
   "navItems": [
     {
       "label": "Dashboard",
