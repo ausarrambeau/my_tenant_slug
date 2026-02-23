@@ -1,9 +1,9 @@
 const tenantSite = {
   "templatePackId": "template-01-dark-crm",
   "branding": {
-    "companyName": "Test Six",
+    "companyName": "Test Seven",
     "logoUrl": null,
-    "tagline": "Test Six client portal",
+    "tagline": "Test Seven client portal",
     "primaryColor": "#0E7490",
     "secondaryColor": "#F1F5F9",
     "accentColor": "#F97316"
@@ -93,7 +93,7 @@ const tenantSite = {
     {
       "type": "email",
       "label": "Support",
-      "value": "support@test-six.example.com",
+      "value": "support@test-seven.example.com",
       "primary": true
     },
     {
@@ -104,15 +104,15 @@ const tenantSite = {
     }
   ],
   "footer": {
-    "copyrightText": "© 2026 Test Six. All rights reserved.",
+    "copyrightText": "© 2026 Test Seven. All rights reserved.",
     "links": [
       {
         "label": "Privacy",
-        "url": "https://test-six.example.com/privacy"
+        "url": "https://test-seven.example.com/privacy"
       },
       {
         "label": "Terms",
-        "url": "https://test-six.example.com/terms"
+        "url": "https://test-seven.example.com/terms"
       }
     ]
   }
