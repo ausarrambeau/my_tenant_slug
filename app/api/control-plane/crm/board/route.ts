@@ -74,12 +74,26 @@ export async function GET(req: Request) {
       },
     });
 
-    const payload = await upstream.json().catch(() => ({}));
+    const rawText = await upstream.text();
+    const payload = (() => {
+      try {
+        return rawText ? JSON.parse(rawText) : {};
+      } catch {
+        return {};
+      }
+    })();
     if (!upstream.ok) {
       return NextResponse.json(
         {
           error: asString((payload as any)?.error) || "Control-plane board request failed.",
           code: asString((payload as any)?.code) || "control_plane_error",
+          upstream_status: upstream.status || 502,
+          upstream_status_text: upstream.statusText || "",
+          ...(rawText
+            ? {
+                upstream_body_excerpt: rawText.slice(0, 240),
+              }
+            : {}),
         },
         { status: upstream.status || 502 }
       );
