@@ -180,7 +180,7 @@ async function loadBoardSnapshot(): Promise<BoardPayload | null> {
 
 export default function HomePage() {
   const router = useRouter();
-  const tenantBusinessName = "Test Eighteen";
+  const tenantBusinessName = "Rambo CRM";
   const [board, setBoard] = useState<BoardPayload | null>(null);
   const [liveError, setLiveError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
