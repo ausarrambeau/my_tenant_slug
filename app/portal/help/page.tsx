@@ -1,9 +1,13 @@
+'use client';
+
+import { useEffect, useMemo, useState } from "react";
+
 const page = {
   "title": "Help",
   "description": "Help workspace generated from tenant navigation and module policies.",
   "routePath": "/portal/help",
   "moduleKey": null,
-  "companyName": "Test Six",
+  "companyName": "Test Seven",
   "navItems": [
     {
       "label": "Dashboard",
@@ -82,7 +86,79 @@ function isActive(path: string) {
   return normalizePath(path) === normalizePath(page.routePath);
 }
 
+function formatCurrency(value: unknown) {
+  const amount = Number(value || 0);
+  if (!Number.isFinite(amount)) return "$0";
+  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(amount);
+}
+
+async function loadBoardSnapshot() {
+  const response = await fetch("/api/control-plane/crm/board?limit=50", {
+    method: "GET",
+    cache: "no-store",
+  });
+
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const message = String((payload as any)?.error || `Control-plane proxy failed (${response.status}).`);
+    throw new Error(message);
+  }
+
+  return (payload as any)?.board || null;
+}
+
 export default function TenantRoutePage() {
+  const [liveBoard, setLiveBoard] = useState<any | null>(null);
+  const [liveError, setLiveError] = useState("");
+
+  useEffect(() => {
+    let active = true;
+    loadBoardSnapshot()
+      .then((board) => {
+        if (!active) return;
+        setLiveBoard(board);
+        setLiveError("");
+      })
+      .catch((error: any) => {
+        if (!active) return;
+        setLiveBoard(null);
+        setLiveError(error?.message || "Live data unavailable.");
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const kpis = useMemo(() => {
+    if (!liveBoard?.metrics) return composition.kpis;
+    const metrics = liveBoard.metrics;
+    return [
+      { label: "Pipeline", value: formatCurrency(metrics.totalPipeline) },
+      { label: "Active Deals", value: String(metrics.activeDeals || 0) },
+      { label: "Win Rate", value: `${Number(metrics.winRatePct || 0)}%` },
+    ];
+  }, [liveBoard]);
+
+  const columns = useMemo(() => {
+    const opportunities = Array.isArray(liveBoard?.opportunities) ? liveBoard.opportunities : [];
+    if (!opportunities.length) return composition.columns;
+
+    const top = opportunities.slice(0, 9);
+    const groups = [top.slice(0, 3), top.slice(3, 6), top.slice(6, 9)];
+    return groups.map((items, index) => ({
+      title: ["Live Pipeline", "Next Actions", "Owners"][index] || `Live Column ${index + 1}`,
+      items: items.length
+        ? items.map((item: any) => {
+            const company = String(item?.company || "Opportunity");
+            const stage = String(item?.stage || "lead");
+            const owner = String(item?.owner || "Unassigned");
+            return `${company} • ${stage} • ${owner}`;
+          })
+        : ["No records available."],
+    }));
+  }, [liveBoard]);
+
   return (
     <div className="crm-shell">
       <aside className="crm-sidebar">
@@ -110,11 +186,12 @@ export default function TenantRoutePage() {
             <p className="eyebrow">CRM Surface</p>
             <h1>{composition.surface.title}</h1>
             <p className="tagline">{composition.surface.description}</p>
+            {liveError ? <p className="tagline" style={{ marginTop: "0.5rem" }}>{liveError}</p> : null}
           </div>
         </header>
 
         <section className="crm-kpis" aria-label="Surface KPIs">
-          {composition.kpis.map((kpi) => (
+          {kpis.map((kpi) => (
             <article key={kpi.label} className="crm-kpi-card">
               <p>{kpi.label}</p>
               <h3>{kpi.value}</h3>
@@ -123,7 +200,7 @@ export default function TenantRoutePage() {
         </section>
 
         <section className="crm-grid-three">
-          {composition.columns.map((column) => (
+          {columns.map((column) => (
             <article key={column.title} className="panel panel-dark">
               <h2>{column.title}</h2>
               <ul className="crm-data-list">
