@@ -69,10 +69,24 @@ export async function GET(req: Request) {
     const upstream = await fetch(`${baseUrl}/api/agency/proxy/crm/board?${params.toString()}`, {
       method: "GET",
       cache: "no-store",
+      redirect: "manual",
       headers: {
         authorization: `Bearer ${authorizationToken}`,
       },
     });
+
+    if (upstream.status >= 300 && upstream.status < 400) {
+      return NextResponse.json(
+        {
+          error: "Control-plane base URL redirected the proxy request. Use the final canonical API origin (no redirects).",
+          code: "control_plane_redirect",
+          upstream_status: upstream.status,
+          upstream_status_text: upstream.statusText || "",
+          upstream_location: upstream.headers.get("location") || "",
+        },
+        { status: 502 }
+      );
+    }
 
     const rawText = await upstream.text();
     const payload = (() => {
