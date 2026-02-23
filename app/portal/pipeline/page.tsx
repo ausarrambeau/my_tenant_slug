@@ -7,7 +7,7 @@ const page = {
   "description": "Stage-by-stage opportunity flow with ownership and aging.",
   "routePath": "/portal/pipeline",
   "moduleKey": "pipeline",
-  "companyName": "Test Seven",
+  "companyName": "Test Eight",
   "navItems": [
     {
       "label": "Dashboard",
