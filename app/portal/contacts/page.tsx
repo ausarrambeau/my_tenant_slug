@@ -7,7 +7,7 @@ const page = {
   "description": "Unified people records, lifecycle state, and relationship notes.",
   "routePath": "/portal/contacts",
   "moduleKey": "contacts",
-  "companyName": "Test Eleven",
+  "companyName": "Test Twelve",
   "navItems": [
     {
       "label": "Dashboard",
