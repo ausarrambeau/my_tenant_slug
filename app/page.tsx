@@ -1,8 +1,9 @@
 const tenantSite = {
+  "templatePackId": "template-01-dark-crm",
   "branding": {
-    "companyName": "Test Four",
+    "companyName": "Test Five",
     "logoUrl": null,
-    "tagline": "Test Four client portal",
+    "tagline": "Test Five client portal",
     "primaryColor": "#0E7490",
     "secondaryColor": "#F1F5F9",
     "accentColor": "#F97316"
@@ -54,7 +55,7 @@ const tenantSite = {
     {
       "type": "email",
       "label": "Support",
-      "value": "support@test-four.example.com",
+      "value": "support@test-five.example.com",
       "primary": true
     },
     {
@@ -65,15 +66,15 @@ const tenantSite = {
     }
   ],
   "footer": {
-    "copyrightText": "© 2026 Test Four. All rights reserved.",
+    "copyrightText": "© 2026 Test Five. All rights reserved.",
     "links": [
       {
         "label": "Privacy",
-        "url": "https://test-four.example.com/privacy"
+        "url": "https://test-five.example.com/privacy"
       },
       {
         "label": "Terms",
-        "url": "https://test-four.example.com/terms"
+        "url": "https://test-five.example.com/terms"
       }
     ]
   }
@@ -86,68 +87,92 @@ function getContactHref(type: string, value: string) {
   return value.startsWith("http") ? value : `https://${value}`;
 }
 
+const stats = [
+  { label: "Modules", value: String(tenantSite.modules.length) },
+  { label: "Nav Links", value: String(tenantSite.nav.filter((item) => !item.external).length) },
+  { label: "Contact Methods", value: String(tenantSite.contact.length) },
+];
+
 export default function HomePage() {
   return (
-    <main className="tenant-shell">
-      <header className="tenant-header">
-        <div>
-          <p className="eyebrow">Tenant Portal</p>
-          <h1>{tenantSite.branding.companyName}</h1>
-          <p className="tagline">{tenantSite.branding.tagline}</p>
+    <div className="crm-shell">
+      <aside className="crm-sidebar">
+        <div className="crm-brand">
+          <div className="crm-brand-mark">GB</div>
+          <div>
+            <p className="crm-brand-name">{tenantSite.branding.companyName}</p>
+            <p className="crm-brand-sub">Dark CRM Template</p>
+          </div>
         </div>
-      </header>
 
-      <section className="panel">
-        <h2>Navigation</h2>
-        <nav className="nav-grid" aria-label="Primary">
-          {tenantSite.nav.map((item) => (
-            <a key={item.id} href={item.path} className="link-chip">
+        <nav className="crm-nav" aria-label="Primary">
+          {tenantSite.nav.filter((item) => !item.external).map((item) => (
+            <a key={item.id} href={item.path} className="crm-nav-link">
               <span>{item.label}</span>
-              {item.moduleKey ? <small>{item.moduleKey}</small> : null}
+              <small>{item.path}</small>
             </a>
           ))}
         </nav>
-      </section>
+      </aside>
 
-      <section className="panel">
-        <h2>Modules</h2>
-        <div className="module-grid">
-          {tenantSite.modules.map((module) => (
-            <article key={module.key} className="module-card">
-              <div>
-                <h3>{module.title}</h3>
-                <p>{module.description}</p>
-              </div>
-              <a href={module.href} className="module-link">
-                Open
-              </a>
+      <main className="crm-main">
+        <header className="crm-topbar">
+          <div>
+            <p className="eyebrow">Tenant Portal</p>
+            <h1>{tenantSite.branding.companyName}</h1>
+            <p className="tagline">{tenantSite.branding.tagline}</p>
+          </div>
+        </header>
+
+        <section className="crm-kpis" aria-label="Dashboard KPIs">
+          {stats.map((stat) => (
+            <article key={stat.label} className="crm-kpi-card">
+              <p>{stat.label}</p>
+              <h3>{stat.value}</h3>
             </article>
           ))}
-        </div>
-      </section>
+        </section>
 
-      <section className="panel">
-        <h2>Contact</h2>
-        <ul className="contact-list">
-          {tenantSite.contact.map((method) => (
-            <li key={`${method.type}-${method.value}`}>
-              <span>{method.label}</span>
-              <a href={getContactHref(method.type, method.value)}>{method.value}</a>
-            </li>
-          ))}
-        </ul>
-      </section>
+        <section className="crm-grid-two">
+          <article className="panel panel-dark">
+            <h2>Modules</h2>
+            <div className="crm-module-list">
+              {tenantSite.modules.map((module) => (
+                <a key={module.key} href={module.href} className="crm-module-row">
+                  <div>
+                    <h3>{module.title}</h3>
+                    <p>{module.description}</p>
+                  </div>
+                  <span>Open</span>
+                </a>
+              ))}
+            </div>
+          </article>
 
-      <footer className="tenant-footer">
-        <p>{tenantSite.footer.copyrightText}</p>
-        <div className="footer-links">
-          {tenantSite.footer.links.map((link) => (
-            <a key={`${link.label}-${link.url}`} href={link.url}>
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </footer>
-    </main>
+          <article className="panel panel-dark">
+            <h2>Contact</h2>
+            <ul className="contact-list contact-list-dark">
+              {tenantSite.contact.map((method) => (
+                <li key={`${method.type}-${method.value}`}>
+                  <span>{method.label}</span>
+                  <a href={getContactHref(method.type, method.value)}>{method.value}</a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </section>
+
+        <footer className="tenant-footer tenant-footer-dark">
+          <p>{tenantSite.footer.copyrightText}</p>
+          <div className="footer-links">
+            {tenantSite.footer.links.map((link) => (
+              <a key={`${link.label}-${link.url}`} href={link.url}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </footer>
+      </main>
+    </div>
   );
 }
