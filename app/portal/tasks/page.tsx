@@ -7,7 +7,7 @@ const page = {
   "description": "Action queue for follow-ups, handoffs, and due-date execution.",
   "routePath": "/portal/tasks",
   "moduleKey": "tasks",
-  "companyName": "Test Nine",
+  "companyName": "Test Ten",
   "navItems": [
     {
       "label": "Dashboard",
