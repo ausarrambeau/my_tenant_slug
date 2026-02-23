@@ -7,7 +7,7 @@ const page = {
   "description": "Help workspace generated from tenant navigation and module policies.",
   "routePath": "/portal/help",
   "moduleKey": null,
-  "companyName": "Test Eleven",
+  "companyName": "Test Twelve",
   "navItems": [
     {
       "label": "Dashboard",
