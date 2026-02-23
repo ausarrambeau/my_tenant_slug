@@ -7,7 +7,7 @@ const page = {
   "description": "Review and respond to communication threads. Configured: allow_email=true, allow_sms=true.",
   "routePath": "/portal/messages",
   "moduleKey": "messages",
-  "companyName": "Test Eleven",
+  "companyName": "Test Twelve",
   "navItems": [
     {
       "label": "Dashboard",
