@@ -1,0 +1,274 @@
+{
+  "tenant_slug": "test_fourteen",
+  "publish_job_id": "650071da-5314-4c34-8932-69ddf7d2bee6",
+  "config_version": 1,
+  "publish_state": "opening_pr",
+  "generated_at": "2026-02-23T16:10:53.314Z",
+  "generated_config": {
+    "nav": {
+      "primary": [
+        {
+          "id": "dashboard",
+          "path": "/portal/dashboard",
+          "label": "Dashboard",
+          "module_key": "dashboard"
+        },
+        {
+          "id": "help",
+          "path": "/portal/help",
+          "label": "Help"
+        },
+        {
+          "id": "messages",
+          "path": "/portal/messages",
+          "label": "Messages",
+          "module_key": "messages"
+        }
+      ],
+      "sections": [
+        {
+          "id": "primary",
+          "items": [
+            {
+              "id": "help",
+              "path": "/portal/help",
+              "label": "Help"
+            }
+          ],
+          "label": "Primary"
+        },
+        {
+          "id": "modules",
+          "items": [
+            {
+              "id": "dashboard",
+              "path": "/portal/dashboard",
+              "label": "Dashboard",
+              "module_key": "dashboard"
+            },
+            {
+              "id": "messages",
+              "path": "/portal/messages",
+              "label": "Messages",
+              "module_key": "messages"
+            }
+          ],
+          "label": "Modules"
+        },
+        {
+          "id": "external",
+          "items": [],
+          "label": "External"
+        }
+      ]
+    },
+    "forms": {
+      "lead_capture": {
+        "fields": [
+          {
+            "id": "full_name",
+            "type": "text",
+            "label": "Full Name",
+            "required": true
+          },
+          {
+            "id": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true
+          },
+          {
+            "id": "service_type",
+            "type": "select",
+            "label": "Service Type",
+            "options": [
+              "General Inquiry",
+              "Sales",
+              "Support"
+            ],
+            "required": true
+          }
+        ],
+        "enabled": true,
+        "submit_label": "Request Service",
+        "success_message": "Thanks. Our dispatch team will contact you shortly.",
+        "gdpr_consent_required": false
+      }
+    },
+    "legal": {
+      "links": [
+        {
+          "url": "https://test-fourteen.example.com/privacy",
+          "label": "Privacy"
+        },
+        {
+          "url": "https://test-fourteen.example.com/terms",
+          "label": "Terms"
+        },
+        {
+          "url": "https://test-fourteen.example.com/cookies",
+          "label": "Cookies"
+        }
+      ],
+      "cookie_policy_url": "https://test-fourteen.example.com/cookies",
+      "privacy_policy_url": "https://test-fourteen.example.com/privacy",
+      "terms_of_service_url": "https://test-fourteen.example.com/terms"
+    },
+    "footer": {
+      "links": [
+        {
+          "url": "https://test-fourteen.example.com/privacy",
+          "label": "Privacy"
+        },
+        {
+          "url": "https://test-fourteen.example.com/terms",
+          "label": "Terms"
+        }
+      ],
+      "all_links": [
+        {
+          "url": "https://test-fourteen.example.com/cookies",
+          "label": "Cookies"
+        },
+        {
+          "url": "https://test-fourteen.example.com/privacy",
+          "label": "Privacy"
+        },
+        {
+          "url": "https://test-fourteen.example.com/terms",
+          "label": "Terms"
+        }
+      ],
+      "legal_links": [
+        {
+          "url": "https://test-fourteen.example.com/privacy",
+          "label": "Privacy"
+        },
+        {
+          "url": "https://test-fourteen.example.com/terms",
+          "label": "Terms"
+        },
+        {
+          "url": "https://test-fourteen.example.com/cookies",
+          "label": "Cookies"
+        }
+      ],
+      "copyright_text": "© 2026 Test Fourteen. All rights reserved."
+    },
+    "tenant": {
+      "tenant_slug": "test-fourteen",
+      "publish_mode": "manual",
+      "domain_status": "active",
+      "active_deployment_id": null
+    },
+    "contact": {
+      "methods": [
+        {
+          "type": "email",
+          "label": "Support",
+          "value": "support@test-fourteen.example.com",
+          "primary": true
+        },
+        {
+          "type": "phone",
+          "label": "Main Line",
+          "value": "+1-555-123-4567"
+        }
+      ],
+      "primary": {
+        "type": "email",
+        "label": "Support",
+        "value": "support@test-fourteen.example.com"
+      }
+    },
+    "modules": {
+      "items": [
+        {
+          "key": "dashboard",
+          "href": "/portal/dashboard",
+          "title": "Dashboard",
+          "description": "Monitor account health and KPI snapshots. Configured: show_kpis=true."
+        },
+        {
+          "key": "messages",
+          "href": "/portal/messages",
+          "title": "Messages",
+          "description": "Review and respond to communication threads. Configured: allow_email=true, allow_sms=true."
+        },
+        {
+          "key": "support",
+          "href": "/portal/support",
+          "title": "Support",
+          "description": "Open and monitor tenant support requests. Configured: ticket_form_enabled=true."
+        }
+      ],
+      "enabled": [
+        "dashboard",
+        "messages",
+        "support"
+      ],
+      "settings": {
+        "support": {
+          "ticket_form_enabled": true
+        },
+        "messages": {
+          "allow_sms": true,
+          "allow_email": true
+        },
+        "dashboard": {
+          "show_kpis": true
+        }
+      },
+      "normalized": [
+        {
+          "key": "dashboard",
+          "href": "/portal/dashboard",
+          "title": "Dashboard",
+          "description": "Monitor account health and KPI snapshots. Configured: show_kpis=true.",
+          "nav_item_ids": [
+            "dashboard"
+          ]
+        },
+        {
+          "key": "messages",
+          "href": "/portal/messages",
+          "title": "Messages",
+          "description": "Review and respond to communication threads. Configured: allow_email=true, allow_sms=true.",
+          "nav_item_ids": [
+            "messages"
+          ]
+        },
+        {
+          "key": "support",
+          "href": "/portal/support",
+          "title": "Support",
+          "description": "Open and monitor tenant support requests. Configured: ticket_form_enabled=true.",
+          "nav_item_ids": []
+        }
+      ]
+    },
+    "branding": {
+      "tagline": "Test Fourteen client portal",
+      "logo_url": null,
+      "accent_color": "#F97316",
+      "company_name": "Test Fourteen",
+      "primary_color": "#0E7490",
+      "secondary_color": "#F1F5F9"
+    },
+    "schema_version": 1,
+    "contact_methods": [
+      {
+        "type": "email",
+        "label": "Support",
+        "value": "support@test-fourteen.example.com",
+        "primary": true
+      },
+      {
+        "type": "phone",
+        "label": "Main Line",
+        "value": "+1-555-123-4567"
+      }
+    ],
+    "template_pack_id": "template-01-dark-crm"
+  }
+}
