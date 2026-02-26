@@ -37,8 +37,8 @@ const EMPTY_DATA: MarketingAgencyCRMData = {
   userName: "Founder",
   banner: {
     status: "healthy",
-    constraint: "Waiting for live CRM data.",
-    recommendation: "Connect a lead source to start real-time pipeline tracking.",
+    constraint: "Your CRM is ready for live updates.",
+    recommendation: "Connect a lead source to start tracking pipeline activity.",
     actionLabel: "CONNECT SOURCE",
   },
   metrics: {
@@ -78,7 +78,7 @@ function mapBoardToCrmData(board: BoardPayload | null, liveError: string): Marke
       ...EMPTY_DATA,
       banner: {
         status: "warning",
-        constraint: "Live sync unavailable.",
+        constraint: "Live data is temporarily unavailable.",
         recommendation: liveError,
         actionLabel: "RETRY",
       },
@@ -132,7 +132,7 @@ function mapBoardToCrmData(board: BoardPayload | null, liveError: string): Marke
     userName: toText(board.userName, EMPTY_DATA.userName),
     banner: {
       status: board.banner?.status || (liveError ? "warning" : EMPTY_DATA.banner.status),
-      constraint: toText(board.banner?.constraint, liveError ? "Live sync unavailable." : EMPTY_DATA.banner.constraint),
+      constraint: toText(board.banner?.constraint, liveError ? "Live data is temporarily unavailable." : EMPTY_DATA.banner.constraint),
       recommendation: toText(board.banner?.recommendation, liveError || EMPTY_DATA.banner.recommendation),
       actionLabel: toText(board.banner?.actionLabel, EMPTY_DATA.banner.actionLabel),
     },
