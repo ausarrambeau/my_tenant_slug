@@ -1681,8 +1681,8 @@ const DashboardView = ({
         {/* Header */}
         <div className="flex items-center justify-between">
             <div>
-                <h1 className="text-xl font-bold text-gray-100">Good morning, {userName || 'Alex'}!</h1>
-                <p className="text-gray-500 text-xs mt-0.5">Performance overview · Updated 2m ago</p>
+                <h1 className="text-xl font-bold text-gray-100">Welcome back, {userName || 'Alex'}.</h1>
+                <p className="text-gray-500 text-xs mt-0.5">Your client performance snapshot is ready.</p>
             </div>
             <div className="flex items-center gap-2">
                 <span className="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-lg flex items-center gap-1">
