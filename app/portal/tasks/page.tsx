@@ -37,9 +37,9 @@ const EMPTY_DATA: MarketingAgencyCRMData = {
   userName: "Founder",
   banner: {
     status: "healthy",
-    constraint: "Waiting for live CRM data.",
-    recommendation: "Connect a lead source to start real-time pipeline tracking.",
-    actionLabel: "CONNECT SOURCE",
+    constraint: "Live CRM insights will appear here.",
+    recommendation: "Connect your lead sources to start tracking your pipeline.",
+    actionLabel: "CONNECT SOURCES",
   },
   metrics: {
     totalPipeline: 0,
