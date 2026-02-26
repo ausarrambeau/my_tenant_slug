@@ -2655,7 +2655,7 @@ export const MarketingAgencyCRM = ({
                 <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center shadow-md shadow-indigo-900/50">
                     <Rocket className="text-white" size={18} />
                 </div>
-                <span className="text-base font-bold tracking-tight text-gray-100">Vantage CRM</span>
+                <span className="text-base font-bold tracking-tight text-gray-100">Rambo CRM</span>
             </div>
 
             <nav className="flex-1 flex flex-col gap-0.5">
@@ -2668,7 +2668,7 @@ export const MarketingAgencyCRM = ({
                     <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(data?.userName || 'Admin')}`} className="w-8 h-8 rounded-full border border-indigo-500/30" alt="Admin" />
                     <div className="overflow-hidden">
                         <p className="text-xs font-bold truncate text-gray-200">{data?.userName || 'Alex Rivera'}</p>
-                        <p className="text-[10px] text-gray-600 truncate">Agency CRM</p>
+                        <p className="text-[10px] text-gray-600 truncate">Rambo CRM</p>
                     </div>
                 </div>
             </div>
@@ -2684,7 +2684,7 @@ export const MarketingAgencyCRM = ({
                         Dashboard
                     </button>
                     <span className="text-gray-700">|</span>
-                    <span className="text-gray-600 text-xs">Vantage CRM</span>
+                    <span className="text-gray-600 text-xs">Rambo CRM</span>
                     <ChevronRight size={12} className="text-gray-700" />
                     <span className="text-xs font-semibold capitalize text-gray-400">{activeTab}</span>
                 </div>
