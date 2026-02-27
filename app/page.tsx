@@ -37,7 +37,7 @@ const EMPTY_DATA: MarketingAgencyCRMData = {
   userName: "Founder",
   banner: {
     status: "healthy",
-    constraint: "Rambo CRM data.",
+    constraint: "Waiting for live CRM data.",
     recommendation: "Connect a lead source to start real-time pipeline tracking.",
     actionLabel: "CONNECT SOURCE",
   },
@@ -180,7 +180,7 @@ async function loadBoardSnapshot(): Promise<BoardPayload | null> {
 
 export default function HomePage() {
   const router = useRouter();
-  const tenantBusinessName = "Rambo CRM";
+  const tenantBusinessName = "Test Eighteen";
   const [board, setBoard] = useState<BoardPayload | null>(null);
   const [liveError, setLiveError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -233,7 +233,7 @@ export default function HomePage() {
     return (
       <div className="crm-shell">
         <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", color: "#9ca3af", background: "#0f0f13" }}>
-          Rambo CRM data...
+          Loading CRM data...
         </div>
       </div>
     );
